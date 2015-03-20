@@ -5,25 +5,26 @@
  */
 package com.br.javahome.cinema.model.DAO;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Rodrigo-Friedrich
  */
-public interface GenericDAO {
+public interface GenericDAO<Tipo> extends Serializable {
     //CRUD
     
     //C - CREATE
-    public boolean create(Object object);
+    public boolean create(Tipo j);
     
     //R - READ
-    public List<Object> read();
+    public List<Tipo> read(Tipo j);
     
     //U - UPDATE
-    public boolean update(Object object);
+    public void update(Tipo j);
     
     //D - DELETE
-    public boolean delete(Object object);
+    public void delete(Tipo j);
     
 }
