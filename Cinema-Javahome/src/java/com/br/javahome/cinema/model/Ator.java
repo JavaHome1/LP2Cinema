@@ -12,13 +12,13 @@ import java.util.Date;
 public class Ator implements Serializable{
     private int pk;
     private String nome,nacionalidade;
-    private Date dataNasc;
+    private int idade;
 
-    public Ator(int pk, String nome, String nacionalidade, Date dataNasc) {
+    public Ator(int pk, String nome, String nacionalidade, int idade) {
         this.pk = pk;
         this.nome = nome;
         this.nacionalidade = nacionalidade;
-        this.dataNasc = dataNasc;
+        this.idade=idade;
     }
 
     public int getPk() {
@@ -45,12 +45,12 @@ public class Ator implements Serializable{
         this.nacionalidade = nacionalidade;
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
+    public int getDataNasc() {
+        return idade;
     }
 
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setDataNasc(int idade) {
+        this.idade=idade;
     }
     
 }
