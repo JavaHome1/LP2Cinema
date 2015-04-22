@@ -27,7 +27,7 @@ public class SessaoDAO implements GenericDAO<Sessao> {
         try {
             connection = Conexao.getInstance().getConnection();//criando conexao
             Statement statement = connection.createStatement();//criando statement
-            statement.execute("INSERT INTO  CINEMAJAVA.SESSAO (ID_Sessao,HORARIO,ID_FILME,ID_SALA,INGRESSODISPONIVEL,THREED,LEGENDADE,PRECO) VALUES '" + sessao.getPk()+ "','"+sessao.getHorario()+"',"+sessao.getIdFilme+"',"+sessao.getSala+"',"+sessao.getIngressosDisponiveis+"',"+sessao.THREED+"',"+sessao.getlegendade+"',"+sessao.getPreco;//
+//            statement.execute("INSERT INTO  CINEMAJAVA.SESSAO (ID_Sessao,HORARIO,ID_FILME,ID_SALA,INGRESSODISPONIVEL,THREED,LEGENDADE,PRECO) VALUES '" + sessao.getPk()+ "','"+sessao.getHorario()+"',"+sessao.getIdFilme+"',"+sessao.getSala+"',"+sessao.getIngressosDisponiveis+"',"+sessao.THREED+"',"+sessao.getlegendade+"',"+sessao.getPreco;//
             connection.close();;
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SessaoDAO.class.getName()).log(Level.SEVERE, null, ex);
