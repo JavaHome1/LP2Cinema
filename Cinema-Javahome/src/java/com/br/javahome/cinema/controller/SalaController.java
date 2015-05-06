@@ -6,11 +6,11 @@
 package com.br.javahome.cinema.controller;
 
 import com.br.javahome.cinema.model.DAO.SalaDAO;
-import com.br.javahome.cinema.model.DAO.UserDAO;
+import com.br.javahome.cinema.model.Sala;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +19,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author felipemramos
  */
-@WebServlet(name = "GerenteController", urlPatterns = {"/Gerente"})
-public class GerenteController extends HttpServlet {
+public class SalaController extends HttpServlet {
+    private int numero;
+    private int capacidade;
+    private int poltronasEspeciais;
+    private String estado;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,33 +36,20 @@ public class GerenteController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request != null && !("".equals(request.getParameter("command").trim()))) {
-            switch (request.getParameter("command")) {
-                case "sala":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterSala.jsp").forward(request, response);
-                    break;
-                case "usuario":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterUsuario.jsp").forward(request, response);
-                    break;
-                case "ingresso":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/VenderIngresso.jsp").forward(request, response);
-                    break;    
-                case "filme":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterFilme.jsp").forward(request, response);
-                    break;   
-                case "sessao":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterSessao.jsp").forward(request, response);
-                    break;    
-            }
-        }
-            
-        
-        
-        
         response.setContentType("text/html;charset=UTF-8");
-        
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet SalaController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet SalaController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -87,6 +77,39 @@ public class GerenteController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("Entrou no posto!!!!!");
+        
+        this.numero = Integer.parseInt(request.getParameter("campoNumero"));
+        this.capacidade = Integer.parseInt(request.getParameter("campoCapacidade"));
+        this.poltronasEspeciais = Integer.parseInt(request.getParameter("campoPE"));
+        this.estado = request.getParameter("estado");
+        
+        Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
+        
+        System.out.println(sala);
+        
+        SalaDAO salaDao = new SalaDAO();
+        ArrayList<Sala> salas = salaDao.read();
+        boolean achou = false;
+        
+        for (Sala salao : salas) {
+            if (salao.getIdSala() == sala.getIdSala()){
+                achou = true;
+                break;
+            }
+        }
+        
+        if (achou){
+            salaDao.update(sala);
+            System.out.println("achou!!!!");
+        }
+        else{
+            salaDao.create(sala);
+        }
+        
+        
+        
         processRequest(request, response);
     }
 

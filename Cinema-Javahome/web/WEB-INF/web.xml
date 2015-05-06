@@ -21,6 +21,10 @@
         <servlet-class>com.br.javahome.cinema.controller.MasterController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SalaController</servlet-name>
+        <servlet-class>com.br.javahome.cinema.controller.SalaController</servlet-class>
+    </servlet>
+    <servlet>    
         <servlet-name>UserController</servlet-name>
         <servlet-class>com.br.javahome.cinema.controller.UserController</servlet-class>
     </servlet>
@@ -49,12 +53,16 @@
         <url-pattern>/MasterController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UserController</servlet-name>
+    <servlet-name>UserController</servlet-name>
         <url-pattern>/User</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VendaController</servlet-name>
         <url-pattern>/Venda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SalaController</servlet-name>
+        <url-pattern>/SalaController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

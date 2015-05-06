@@ -20,7 +20,7 @@ public class Conexao {
     private static Conexao conexao;
     
     private Conexao() {
-         bundle=ResourceBundle.getBundle("br.mackenzie.fci.ec.lp2.util.configuracoes");
+         bundle=ResourceBundle.getBundle("com.br.javahome.cinema.util.configuracoes");
     }
     
     public static Conexao getInstance(){
