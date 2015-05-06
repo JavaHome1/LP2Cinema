@@ -20,6 +20,7 @@ public class CadastroController extends HttpServlet {
     private String email;
     private String nome;
     private String senha;
+    private int id_func = 2;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

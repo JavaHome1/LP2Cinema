@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 31458904
  */
-public class IndexController extends HttpServlet {
+public class LoginController extends HttpServlet {
 private String nome;
     private String senha;
     
@@ -50,20 +50,22 @@ private String nome;
             
             switch(aut.autentica()){
                 case 0:
-//                    manda se fuder e vai pra pagina de gente
+//                    Gerente
+                      request.getRequestDispatcher("/MenuController").forward(request, response);
                     break;
                 case 1:
-//                    manda ele se fuder e vai pra vender ingresso
+//                    Vender ingresso
                     break;
                 case 2:
-//                    manda ele se fuder e vai pra pag usu
+//                    Página de usuário
+                    request.getRequestDispatcher("/usuario").forward(request, response);
                     break;
                 default:
-                    //so manda ele toma no c#
+//                    Erro
             }
 
             
-            request.getRequestDispatcher("/MenuController").forward(request, response);
+            
             
             out.println("</body>");
             out.println("</html>");

@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>IndexController</servlet-name>
-        <servlet-class>com.br.javahome.cinema.controller.IndexController</servlet-class>
+        <servlet-class>com.br.javahome.cinema.controller.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroController</servlet-name>

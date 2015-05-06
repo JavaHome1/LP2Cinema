@@ -40,7 +40,7 @@ public class AtorDAO implements GenericDAO<Ator> {
 
     @Override
     public List<Ator> read(Ator ator) {
-        ArrayList<Ator>atoretores = new ArrayList<Ator>();
+        ArrayList<Ator>atores = new ArrayList<Ator>();
         try {
             //Class.forName("org.apache.derby.jdbc.ClientDriver");
             //Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/empre", "mack", "mack");
@@ -48,7 +48,7 @@ public class AtorDAO implements GenericDAO<Ator> {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery("SELECT * FROM CINEMAJAVA.ATOR");
             while (result.next()) {
-                atoretores.add(new Ator(result.getInt("ID_ATOR"),result.getString("NOME"),result.getString("NACIONALIDADE"),result.getInt("IDADE")));
+                atores.add(new Ator(result.getInt("ID_ATOR"),result.getString("NOME"),result.getString("NACIONALIDADE"),result.getInt("IDADE")));
             }
             connection.close();
 
@@ -57,7 +57,7 @@ public class AtorDAO implements GenericDAO<Ator> {
         } catch (SQLException ex) {
             Logger.getLogger(AtorDAO.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        return atoretores;
+        return atores;
     }
 
     @Override

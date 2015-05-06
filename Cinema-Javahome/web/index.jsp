@@ -10,7 +10,7 @@ and open the template in the editor.
         <title>LOGIN</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
+        <style type="text/css"> 
             html,body{
                 padding:0;
                 margin:0;
@@ -35,10 +35,10 @@ and open the template in the editor.
     </head>
     <body>
         <header>
-            <form action="IndexController" method="POST">
+            <form action="LoginController" method="POST">
                 <p>Usuario:<input type="text" name="campoNome"/></p>
                 <p>Senha:<input type="password" name="campoSenha"/></p>
-                <p><input type="submit" value="botao"/></p>
+                <p><input type="submit" value="login!"/></p>
             </form>
         </header>
         <br/>
@@ -51,7 +51,7 @@ and open the template in the editor.
             <p>Email:<input type="text" name="campoEmail"/></p>
             <p>Usuario:<input type="text" name="campoNome"/></p>
             <p>Senha:<input type="password" name="campoSenha"/></p>
-            <p><input type="submit" value="botao"/></p>
+            <p><input type="submit" value="cadastrar"/></p>
         </form>
         <footer>
             Javaflix &copy; Felipe e Rodrigo 
