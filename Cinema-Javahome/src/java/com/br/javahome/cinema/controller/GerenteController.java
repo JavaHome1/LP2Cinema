@@ -34,9 +34,7 @@ public class GerenteController extends HttpServlet {
         if( request != null && !("".equals(request.getParameter("command").trim()))){
                 if( "sala".equals(request.getParameter("command")) ){
 //                    request.setAttribute("cargos", new CargoDAO().listar());
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/mantersalinha.jsp").forward(request, response);
-
-                    
+                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterSala.jsp").forward(request, response); 
                 }
             }
         
