@@ -60,7 +60,7 @@ private String nome;
                     break;
                 case 2:
 //                    Página de usuário
-                    request.getRequestDispatcher("WEB-INF/jsp/usuario/UserHome.jsp").forward(request, response);
+                    request.getRequestDispatcher("WEB-INF/jsp/usuario/MenuUsuario.jsp").forward(request, response);
                     break;
                 default:
 //                    Erro
