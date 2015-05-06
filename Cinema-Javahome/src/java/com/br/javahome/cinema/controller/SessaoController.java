@@ -5,11 +5,12 @@
  */
 package com.br.javahome.cinema.controller;
 
-import com.br.javahome.cinema.model.DAO.SalaDAO;
-import com.br.javahome.cinema.model.Sala;
+import com.br.javahome.cinema.model.DAO.SessaoDAO;
+import com.br.javahome.cinema.model.Sessao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,18 +20,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author felipemramos
  */
-public class SalaController extends HttpServlet {
-    private int numero;
-    private int capacidade;
-    private int poltronasEspeciais;
-    private String estado;
-    
-    
-    public static ArrayList<Sala> salasBanco(){
-        SalaDAO salaDao = new SalaDAO();
-        ArrayList<Sala> salas = salaDao.read();
-        return salas;
-    }
+public class SessaoController extends HttpServlet {
+    private int horario;
+    private int idFilme;
+    private int idSala;
+    private double preco;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,10 +43,10 @@ public class SalaController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SalaController</title>");            
+            out.println("<title>Servlet SessaoController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SalaController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SessaoController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -83,38 +78,35 @@ public class SalaController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         System.out.println("Entrou no posto!!!!!");
         
-        this.numero = Integer.parseInt(request.getParameter("campoNumero"));
-        this.capacidade = Integer.parseInt(request.getParameter("campoCapacidade"));
-        this.poltronasEspeciais = Integer.parseInt(request.getParameter("campoPE"));
-        this.estado = request.getParameter("estado");
         
-        Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
-        
-        System.out.println(sala);
-        
-        SalaDAO salaDao = new SalaDAO();
-        ArrayList<Sala> salas = salaDao.read();
+        this.horario = Integer.parseInt(request.getParameter("campoHora"));
+//        this.idFilme = Integer.parseInt(request.getParameter("campoFilme"));
+        this.idSala = Integer.parseInt(request.getParameter("campoSala").trim());
+        this.preco = Double.parseDouble(request.getParameter("campoPreco"));
+        SessaoDAO sessaoDao = new SessaoDAO();
+        List<Sessao> sessoes = sessaoDao.read();
         boolean achou = false;
         
-        for (Sala salao : salas) {
-            if (salao.getIdSala() == sala.getIdSala()){
+        Sessao sess = new Sessao(horario,idFilme,idSala,preco);
+        System.out.println(sessoes);
+        
+        for (Sessao sessaoA : sessoes) {
+            if (sessaoA.getPk() == sess.getPk()){
                 achou = true;
                 break;
             }
         }
         
         if (achou){
-            salaDao.update(sala);
+            sessaoDao.update(sess);
             System.out.println("achou!!!!");
         }
         else{
-            salaDao.create(sala);
-            System.out.println("criou!!!!");
+            sessaoDao.create(sess);
+            System.out.println("what");
         }
-        
         
         
         processRequest(request, response);

@@ -27,8 +27,8 @@ public class SessaoDAO implements GenericDAO<Sessao> {
         try {
             connection = Conexao.getInstance().getConnection();//criando conexao
             Statement statement = connection.createStatement();//criando statement
-//            statement.execute("INSERT INTO  CINEMAJAVA.SESSAO (ID_Sessao,HORARIO,ID_FILME,ID_SALA,INGRESSODISPONIVEL,THREED,LEGENDADE,PRECO) VALUES '" + sessao.getPk()+ "','"+sessao.getHorario()+"',"+sessao.getIdFilme+"',"+sessao.getSala+"',"+sessao.getIngressosDisponiveis+"',"+sessao.THREED+"',"+sessao.getlegendade+"',"+sessao.getPreco;//
-            connection.close();;
+            statement.execute("INSERT INTO CINEMAJAVA.SESSAO(ID_FILME,ID_SALA,INGRESSODISPONIVEL,HORARIO,PRECO) VALUES("+sessao.getIdFilme()+","+sessao.getIdSala()+","+sessao.getIngressoDisponovel()+","+sessao.getHorario()+","+sessao.getPreco()+")");
+            connection.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SessaoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -48,7 +48,7 @@ public class SessaoDAO implements GenericDAO<Sessao> {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery("SELECT * FROM CINEMAJAVA.Sessao");
             while (result.next()) {
-                Sessoes.add(new Sessao(result.getInt("ID_Sessao"),result.getInt("HORARIO"),result.getInt("HORARIO"),result.getInt("ID_FILME"),result.getInt("idSala"),result.getInt("INGRESSODISPONIVEL"),result.getDouble("PRECO"),result.getBoolean("THREED)"),result.getBoolean("LEGENDADO")));
+                Sessoes.add(new Sessao(result.getInt("ID_Sessao"),result.getInt("HORARIO"),result.getInt("ID_FILME"),result.getInt("ID_SALA"),result.getInt("INGRESSODISPONIVEL"),result.getDouble("PRECO")));
             }
             connection.close();
 

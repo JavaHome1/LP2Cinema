@@ -11,20 +11,41 @@ package com.br.javahome.cinema.model;
  */
 public class Sessao {
     
-    private int pk,horario,idFilme,idSala,ingressoDisponovel;
+    private int pk,horario,idFilme,idSala;
+    private int ingressoDisponovel = 0;
     private double preco;
     private boolean lagendade,threeD;
+    private static int lastPk;
 
-    public Sessao(int pk, int horario, int idFilme, int idSala, int ingressoDisponovel, double preco, boolean lagendade, boolean threeD) {
+    public Sessao( int horario, int idFilme, int idSala, double preco, boolean lagendade, boolean threeD) {
+        this.pk = lastPk++;
+        this.horario = horario;
+        this.idFilme = idFilme;
+        this.idSala = idSala;
+        ingressoDisponovel++;
+        this.preco = preco;
+        this.lagendade = lagendade;
+        this.threeD = threeD;
+    }
+    
+    public Sessao( int pk, int horario, int idFilme, int idSala,int ingressoDisponovel, double preco) {
         this.pk = pk;
         this.horario = horario;
         this.idFilme = idFilme;
         this.idSala = idSala;
         this.ingressoDisponovel = ingressoDisponovel;
         this.preco = preco;
-        this.lagendade = lagendade;
-        this.threeD = threeD;
     }
+
+    public Sessao(int horario, int idFilme, int idSala, double preco) {
+        this.pk = lastPk++;
+        this.horario = horario;
+        this.idFilme = idFilme;
+        this.idSala = idSala;
+        this.preco = preco;
+    }
+    
+    
 
     public Sessao(int aInt, int aInt0, int aInt1, int aInt2, int aInt3, int aInt4, double aDouble, boolean aBoolean, boolean aBoolean0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -93,6 +114,13 @@ public class Sessao {
     public void setThreeD(boolean threeD) {
         this.threeD = threeD;
     }
+
+    @Override
+    public String toString() {
+        return "Sessao{" + "pk=" + pk + ", horario=" + horario + ", idFilme=" + idFilme + ", idSala=" + idSala + ", preco=" + preco + ", lagendade=" + lagendade + ", threeD=" + threeD + '}';
+    }
+    
+    
     
     
 }

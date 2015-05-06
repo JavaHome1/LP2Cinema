@@ -24,6 +24,10 @@
         <servlet-name>SalaController</servlet-name>
         <servlet-class>com.br.javahome.cinema.controller.SalaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SessaoController</servlet-name>
+        <servlet-class>com.br.javahome.cinema.controller.SessaoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>SalaController</servlet-name>
         <url-pattern>/SalaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessaoController</servlet-name>
+        <url-pattern>/SessaoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
