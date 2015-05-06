@@ -8,20 +8,16 @@ package com.br.javahome.cinema.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author 31458904
+ * @author Rodrigo-Friedrich
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/login"})
-public class LoginController extends HttpServlet {
-    private String nome;
-    private String senha;
-    
+public class UserController extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,32 +29,17 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-            //verificar se gerente/usuario/atendente
-            
-            Autenticador aut=new Autenticador(nome,senha);
-            System.out.println(aut.autentica());
-            switch(aut.autentica()){
-                case 0:
-//                    Gerente
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
+        if (request != null && !("".equals(request.getParameter("command").trim()))) {
+            switch (request.getParameter("command")) {
+                case "catalogo":
+                    request.getRequestDispatcher("WEB-INF/jsp/usuario/Catalogo.jsp").forward(request, response);
                     break;
-                case 1:
-//                    Atendente 
+                case "perfil":
+                    request.getRequestDispatcher("WEB-INF/jsp/usuario/ManterPerfil.jsp").forward(request, response);
                     break;
-                case 2:
-//                    Página de usuário
-                    request.setAttribute("nome", nome);
-                    request.getRequestDispatcher("WEB-INF/jsp/usuario/MenuUsuario.jsp").forward(request, response);
-                    break;
-                default:
-//                    Erro
-            }
 
-            
-            
-            
-          
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,15 +68,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        nome=request.getParameter("campoNome");
-        senha=request.getParameter("campoSenha");
-        
-        
-        
         processRequest(request, response);
-        
-        
     }
 
     /**

@@ -9,10 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Home</title>
     </head>
     <body>
         <h1>Hello World!</h1>
-        ACESSADO COMO USUARIO COMUM
+        Olá,<% out.print(request.getAttribute("nome")); %>
+        <br/>
+        <a href="${pageContext.request.contextPath}/Venda?command=catalogo">Acessar catálogo</a><br/>
+        <a href="${pageContext.request.contextPath}/User?command=perfil">Acessar perfil</a><br/>
     </body>
 </html>

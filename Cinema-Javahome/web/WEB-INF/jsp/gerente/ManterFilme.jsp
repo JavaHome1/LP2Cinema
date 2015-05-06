@@ -4,6 +4,8 @@
     Author     : Rodrigo-Friedrich
 --%>
 
+<%@page import="com.br.javahome.cinema.model.DAO.FilmeDAO"%>
+<%@page import="com.br.javahome.cinema.model.Filme"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +15,12 @@
     </head>
     <body>
         <h1>Manutenção de Filmes</h1>
+        listar filmes
+        <%
+           for(Filme filme : FilmeDAO.filmeBanco() ){
+               out.println("<a>"+filme.getTitulo() + "<a/><br/>"); // link vai pra pagina de edição de filme 
+           } 
+            
+        %>
     </body>
 </html>
