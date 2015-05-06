@@ -40,7 +40,7 @@ public class SalaDAO implements GenericDAO<Sala>{
     }
 
     @Override
-    public ArrayList<Sala> read(Sala sala) {
+    public ArrayList<Sala> read() {
         ArrayList<Sala>salas = new ArrayList<Sala>();
         try {
             //Class.forName("org.apache.derby.jdbc.ClientDriver");

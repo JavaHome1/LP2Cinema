@@ -37,7 +37,7 @@ public class UserDAO implements GenericDAO<User> {
         return true;    }
 
     @Override
-    public List<User> read(User user) {
+    public List<User> read() {
         ArrayList<User>users = new ArrayList<User>();
         try {
             //Class.forName("org.apache.derby.jdbc.ClientDriver");

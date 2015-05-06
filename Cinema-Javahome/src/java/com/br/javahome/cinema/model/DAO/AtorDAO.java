@@ -39,7 +39,7 @@ public class AtorDAO implements GenericDAO<Ator> {
         return true;    }
 
     @Override
-    public List<Ator> read(Ator ator) {
+    public List<Ator> read() {
         ArrayList<Ator>atores = new ArrayList<Ator>();
         try {
             //Class.forName("org.apache.derby.jdbc.ClientDriver");

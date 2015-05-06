@@ -1,7 +1,7 @@
 <%-- 
-    Document   : mantersalinha
-    Created on : 06/05/2015, 00:42:15
-    Author     : felipemramos
+    Document   : VenderIngresso
+    Created on : 06/05/2015, 01:21:51
+    Author     : Rodrigo-Friedrich
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,10 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Manter Sala</title>
+        <title>Vender Ingresso</title>
     </head>
     <body>
-        <h1>Manutenção de sala</h1>
-        
+        <h1>Venda de Ingressos</h1>
     </body>
 </html>

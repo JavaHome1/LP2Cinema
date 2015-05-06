@@ -40,7 +40,7 @@ public class DiretorDAO implements GenericDAO<Diretor> {
         return true;    }
 
     @Override
-    public List<Diretor> read(Diretor dir) {
+    public List<Diretor> read() {
         ArrayList<Diretor>diretores = new ArrayList<Diretor>();
         try {
             //Class.forName("org.apache.derby.jdbc.ClientDriver");
