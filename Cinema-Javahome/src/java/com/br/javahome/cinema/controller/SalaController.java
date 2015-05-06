@@ -5,9 +5,11 @@
  */
 package com.br.javahome.cinema.controller;
 
+import com.br.javahome.cinema.model.DAO.SalaDAO;
 import com.br.javahome.cinema.model.Sala;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -76,12 +78,35 @@ public class SalaController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        System.out.println("Entrou no posto!!!!!");
+        
         this.numero = Integer.parseInt(request.getParameter("campoNumero"));
         this.capacidade = Integer.parseInt(request.getParameter("campoCapacidade"));
         this.poltronasEspeciais = Integer.parseInt(request.getParameter("campoPE"));
         this.estado = request.getParameter("estado");
         
         Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
+        
+        System.out.println(sala);
+        
+        SalaDAO salaDao = new SalaDAO();
+        ArrayList<Sala> salas = salaDao.read();
+        boolean achou = false;
+        
+        for (Sala salao : salas) {
+            if (salao.getIdSala() == sala.getIdSala()){
+                achou = true;
+                break;
+            }
+        }
+        
+        if (achou){
+            salaDao.update(sala);
+            System.out.println("achou!!!!");
+        }
+        else{
+            salaDao.create(sala);
+        }
         
         
         

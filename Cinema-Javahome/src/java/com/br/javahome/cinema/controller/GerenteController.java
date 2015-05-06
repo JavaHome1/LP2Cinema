@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author felipemramos
  */
-
+@WebServlet(name = "GerenteController", urlPatterns = {"/Gerente"})
 public class GerenteController extends HttpServlet {
 
     /**
