@@ -39,7 +39,7 @@ public class SessaoDAO implements GenericDAO<Sessao> {
         return true;    }
 
     @Override
-    public List<Sessao> read(Sessao sessao  ) {
+    public List<Sessao> read() {
         ArrayList<Sessao>Sessoes = new ArrayList<Sessao>();
         try {
             //Class.forName("org.apache.derby.jdbc.ClientDriver");

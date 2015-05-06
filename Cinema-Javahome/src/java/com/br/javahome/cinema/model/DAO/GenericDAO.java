@@ -19,7 +19,7 @@ public interface GenericDAO<Tipo> extends Serializable {
     public boolean create(Tipo j);
     
     //R - READ
-    public List<Tipo> read(Tipo j);
+    public List<Tipo> read();
     
     //U - UPDATE
     public void update(Tipo j);
