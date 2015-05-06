@@ -17,6 +17,7 @@ public class User {
     public User(String nome, String senha, int id_func) {
         this.nome = nome;
         this.senha = senha;
+        this.id_func = id_func;
     }
     
     

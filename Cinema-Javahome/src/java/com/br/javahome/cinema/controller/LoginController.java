@@ -8,6 +8,7 @@ package com.br.javahome.cinema.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 31458904
  */
+@WebServlet(name = "LoginController", urlPatterns = {"/login"})
 public class LoginController extends HttpServlet {
 private String nome;
     private String senha;
@@ -47,18 +49,18 @@ private String nome;
             //verificar se gerente/usuario/atendente
             
             Autenticador aut=new Autenticador(nome,senha);
-            
+            System.out.println(aut.autentica());
             switch(aut.autentica()){
                 case 0:
 //                    Gerente
-                      request.getRequestDispatcher("/MenuController").forward(request, response);
+                    request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
                     break;
                 case 1:
 //                    Vender ingresso
                     break;
                 case 2:
 //                    Página de usuário
-                    request.getRequestDispatcher("/usuario").forward(request, response);
+                    request.getRequestDispatcher("WEB-INF/jsp/usuario/UserHome.jsp").forward(request, response);
                     break;
                 default:
 //                    Erro

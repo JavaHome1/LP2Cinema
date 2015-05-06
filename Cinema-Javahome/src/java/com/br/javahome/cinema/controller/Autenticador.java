@@ -20,7 +20,7 @@ public class Autenticador {
     
     public int autentica(){
         ArrayList<User> users = new ArrayList<>();// alterar para consulta no banco de dados
-            users.add(new User("felipe","ramos",0));// remover os add
+            users.add(new User("user","user",2));// remover os add
             users.add(new User("admin","admin",0));
             users.add(new User("rodrigo","friedrich",0));
             for (User user : users) {
