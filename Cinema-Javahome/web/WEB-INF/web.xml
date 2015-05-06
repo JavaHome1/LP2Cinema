@@ -20,6 +20,14 @@
         <servlet-name>MasterController</servlet-name>
         <servlet-class>com.br.javahome.cinema.controller.MasterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>com.br.javahome.cinema.controller.UserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VendaController</servlet-name>
+        <servlet-class>com.br.javahome.cinema.controller.VendaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>MasterController</servlet-name>
         <url-pattern>/MasterController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/User</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaController</servlet-name>
+        <url-pattern>/Venda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
