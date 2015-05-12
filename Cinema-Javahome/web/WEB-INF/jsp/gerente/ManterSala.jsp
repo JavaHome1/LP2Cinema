@@ -14,11 +14,11 @@
     <body>
         <form action="SalaController" method="POST">
             <p>Numero:<input type="number" name="campoNumero" required/></p>
-            <p>Capacidade:<input type="text" name="campoCapacidade" required/></p>
-            <p>Poltronas Epeciais:<input type="text" name="campoPE" required/></p>
+            <p>Capacidade:<input type="number" name="campoCapacidade" required/></p>
+            <p>Poltronas Epeciais:<input type="number" name="campoPE" required/></p>
             <p>Estado
-                <br/><input type="radio" name="estado" value="manutenção"/>em manutenção
-                <br/><input type="radio" name="estado" value="Ativa" checked/>Ativa
+                <br/><input type="radio" name="estado" value="manutenção" checked/>em manutenção
+                <br/><input type="radio" name="estado" value="Ativa"/>Ativa
                 <br/><input type="radio" name="estado" value="lotada"/>lotada
             </p>
             <p><input type="submit" value="Salvar"/></p>

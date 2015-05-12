@@ -10,15 +10,24 @@ package com.br.javahome.cinema.model;
  * @author felipemramos
  */
 public class Filme {
+    private int pk;
     private String titulo;
     private int duracao;
     private char classificacao;
-    private String diretor;
-    private String distribuidora;
-    private boolean cartaz;
+    private Diretor diretor;
+    private Distribuidora distribuidora;
     private boolean estreia;
-    private boolean lancamento;
     private String genero;
+
+    public int getPk() {
+        return pk;
+    }
+
+    public void setPk(int pk) {
+        this.pk = pk;
+    }
+    
+    
 
     public String getTitulo() {
         return titulo;
@@ -44,29 +53,24 @@ public class Filme {
         this.classificacao = classificacao;
     }
 
-    public String getDiretor() {
+    public Diretor getDiretor() {
         return diretor;
     }
 
-    public void setDiretor(String diretor) {
+    public void setDiretor(Diretor diretor) {
         this.diretor = diretor;
     }
 
-    public String getDistribuidora() {
+    public Distribuidora getDistribuidora() {
         return distribuidora;
     }
 
-    public void setDistribuidora(String distribuidora) {
+    public void setDistribuidora(Distribuidora distribuidora) {
         this.distribuidora = distribuidora;
     }
 
-    public boolean isCartaz() {
-        return cartaz;
-    }
 
-    public void setCartaz(boolean cartaz) {
-        this.cartaz = cartaz;
-    }
+
 
     public boolean isEstreia() {
         return estreia;
@@ -76,13 +80,6 @@ public class Filme {
         this.estreia = estreia;
     }
 
-    public boolean isLancamento() {
-        return lancamento;
-    }
-
-    public void setLancamento(boolean lancamento) {
-        this.lancamento = lancamento;
-    }
 
     public String getGenero() {
         return genero;
@@ -92,22 +89,22 @@ public class Filme {
         this.genero = genero;
     }
 
-    @Override
-    public String toString() {
-        return "Filme{" + "titulo=" + titulo + ", duracao=" + duracao + ", classificacao=" + classificacao + ", diretor=" + diretor + ", distribuidora=" + distribuidora + ", cartaz=" + cartaz + ", estreia=" + estreia + ", lancamento=" + lancamento + ", genero=" + genero + '}';
-    }
-
-    public Filme(String titulo, int duracao, char classificacao, String diretor, String distribuidora, boolean cartaz, boolean estreia, boolean lancamento, String genero) {
+    public Filme(String titulo, int duracao, char classificacao, Diretor diretor, Distribuidora distribuidora, boolean estreia, String genero) {
         this.titulo = titulo;
         this.duracao = duracao;
         this.classificacao = classificacao;
         this.diretor = diretor;
         this.distribuidora = distribuidora;
-        this.cartaz = cartaz;
         this.estreia = estreia;
-        this.lancamento = lancamento;
         this.genero = genero;
     }
+
+    @Override
+    public String toString() {
+        return "Filme{" + "id=" + pk + ", titulo=" + titulo + ", duracao=" + duracao + ", classificacao=" + classificacao + ", diretor=" + diretor + ", distribuidora=" + distribuidora + ", estreia=" + estreia + ", genero=" + genero + '}';
+    }
+    
+    
     
     
     
