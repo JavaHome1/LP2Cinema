@@ -20,6 +20,11 @@ public class Distribuidora implements Serializable{
         this.site = site;
     }
 
+    public Distribuidora(String nome) {
+        this.nome = nome;
+    }
+    
+
     public int getPk() {
         return pk;
     }

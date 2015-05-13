@@ -7,6 +7,7 @@ package com.br.javahome.cinema.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,15 +45,23 @@ public class LoginController extends HttpServlet {
                     request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
                     break;
                 case 1:
-//                    Atendente 
-                    break;
-                case 2:
 //                    Página de usuário
                     request.setAttribute("nome", nome);
                     request.getRequestDispatcher("WEB-INF/jsp/usuario/MenuUsuario.jsp").forward(request, response);
                     break;
                 default:
 //                    Erro
+                    try (PrintWriter out = response.getWriter()) {
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Servlet CadastroController</title>");            
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("Eae cara? tenta entrar na sua conta com nome de usuario e senha corretos meu!");
+                    out.println("</body>");
+                    out.println("</html>");
+                    }
             }
 
             

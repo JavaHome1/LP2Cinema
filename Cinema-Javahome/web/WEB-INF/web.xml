@@ -28,13 +28,17 @@
         <servlet-name>SessaoController</servlet-name>
         <servlet-class>com.br.javahome.cinema.controller.SessaoController</servlet-class>
     </servlet>
-    <servlet>    
+    <servlet>
         <servlet-name>UserController</servlet-name>
         <servlet-class>com.br.javahome.cinema.controller.UserController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VendaController</servlet-name>
         <servlet-class>com.br.javahome.cinema.controller.VendaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FilmeController</servlet-name>
+        <servlet-class>com.br.javahome.cinema.controller.FilmeController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -57,7 +61,7 @@
         <url-pattern>/MasterController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    <servlet-name>UserController</servlet-name>
+        <servlet-name>UserController</servlet-name>
         <url-pattern>/User</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>SessaoController</servlet-name>
         <url-pattern>/SessaoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilmeController</servlet-name>
+        <url-pattern>/FilmeController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

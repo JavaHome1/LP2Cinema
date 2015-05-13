@@ -42,7 +42,7 @@ public class CadastroController extends HttpServlet {
             out.println("<title>Servlet CadastroController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CadastroController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>NOT YET IMPLEMENTED!!!</h1>");
             out.println(email+" <-email<br/>");
             out.println(nome+" <-nome <br/>");
             out.println(senha);

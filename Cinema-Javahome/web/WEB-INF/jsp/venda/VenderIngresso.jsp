@@ -4,6 +4,8 @@
     Author     : Rodrigo-Friedrich
 --%>
 
+<%@page import="com.br.javahome.cinema.model.Distribuidora"%>
+<%@page import="com.br.javahome.cinema.model.Diretor"%>
 <%@page import="com.br.javahome.cinema.model.Filme"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,7 +21,9 @@
             <p>Filme:<select >
                     <%
 //                        for (Filme filme : FilmeController.filmesBanco()) {
-                        Filme filme = new Filme("frozen",120,'k',"luciano","JavaMount",true,true,true,"action");
+                        Diretor d = new Diretor("Luciano","3");
+                        Distribuidora dd = new Distribuidora("JavaMount");
+                        Filme filme = new Filme("frozen",120,'k',d,dd,true,"action");
                             out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
 //                        }
                     %>

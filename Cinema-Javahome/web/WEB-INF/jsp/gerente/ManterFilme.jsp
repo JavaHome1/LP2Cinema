@@ -15,6 +15,7 @@
     </head>
     <body>
         <h1>Manutenção de Filmes</h1>
+        
         listar filmes
         <%
            for(Filme filme : FilmeDAO.filmeBanco() ){
