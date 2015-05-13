@@ -42,7 +42,31 @@ public class SalaController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
+        
+        System.out.println(sala);
+        
+        SalaDAO salaDao = new SalaDAO();
+        ArrayList<Sala> salas = salaDao.read();
+        boolean achou = false;
+        
+        for (Sala salao : salas) {
+            if (salao.getIdSala() == sala.getIdSala()){
+                achou = true;
+                break;
+            }
+        }
+        
+        if (achou){
+            salaDao.update(sala);
+            System.out.println("achou!!!!");
+        }
+        else{
+            salaDao.create(sala);
+            System.out.println("criou!!!!");
+        }
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -91,29 +115,7 @@ public class SalaController extends HttpServlet {
         this.poltronasEspeciais = Integer.parseInt(request.getParameter("campoPE"));
         this.estado = request.getParameter("estado");
         
-        Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
         
-        System.out.println(sala);
-        
-        SalaDAO salaDao = new SalaDAO();
-        ArrayList<Sala> salas = salaDao.read();
-        boolean achou = false;
-        
-        for (Sala salao : salas) {
-            if (salao.getIdSala() == sala.getIdSala()){
-                achou = true;
-                break;
-            }
-        }
-        
-        if (achou){
-            salaDao.update(sala);
-            System.out.println("achou!!!!");
-        }
-        else{
-            salaDao.create(sala);
-            System.out.println("criou!!!!");
-        }
         
         
         
