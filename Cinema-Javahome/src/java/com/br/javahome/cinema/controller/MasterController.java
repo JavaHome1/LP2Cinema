@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author felipemramos
  */
 public class MasterController extends HttpServlet {
+    
+    private String command;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,10 +34,14 @@ public class MasterController extends HttpServlet {
             throws ServletException, IOException {
         
         
-        String command = request.getParameter("command");
         if (command != null && !"".equals(command)) {
-            if (command.startsWith("gerente.")) {
-                RequestDispatcher rd = request.getRequestDispatcher("/gerente");
+            if(command.equals("login")){
+                System.out.println("/login");
+                RequestDispatcher rd = request.getRequestDispatcher("LoginController");
+                rd.forward(request, response);
+            }
+            if (command.startsWith("Venda.")) {
+                RequestDispatcher rd = request.getRequestDispatcher("/Venda");
                 rd.forward(request, response);
             }
 
@@ -61,7 +67,7 @@ public class MasterController extends HttpServlet {
             out.println("<title>Servlet MasterController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet MasterController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet MasterController at " + command + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,6 +85,7 @@ public class MasterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        command = request.getParameter("command");
         processRequest(request, response);
     }
 
@@ -93,6 +100,7 @@ public class MasterController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        command = request.getParameter("command");
         processRequest(request, response);
     }
 

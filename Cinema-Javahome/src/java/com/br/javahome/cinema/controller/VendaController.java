@@ -29,16 +29,17 @@ public class VendaController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("VANDA");
         response.setContentType("text/html;charset=UTF-8");
         if (request != null && !("".equals(request.getParameter("command").trim()))) {
             switch (request.getParameter("command")) {
-                case "catalogo":
+                case "Venda.catalogo":
                     request.getRequestDispatcher("WEB-INF/jsp/venda/Catalogo.jsp").forward(request, response);
                     break;
-                case "ingresso":
+                case "Venda.ingresso":
                     request.getRequestDispatcher("WEB-INF/jsp/venda/VenderIngresso.jsp").forward(request, response);
                     break;   
-                case "sessao":
+                case "Venda.sessao":
                     request.getRequestDispatcher("WEB-INF/jsp/venda/SessoesFilme.jsp").forward(request, response);
                     break;    
             }

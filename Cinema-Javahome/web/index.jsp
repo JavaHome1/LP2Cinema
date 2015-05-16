@@ -35,10 +35,11 @@ and open the template in the editor.
     </head>
     <body>
         <header>
-            <form action="LoginController" method="POST">
+            <form action="MasterController" method="POST">
                 <p>Usuario:<input type="text" name="campoNome"/></p>
                 <p>Senha:<input type="password" name="campoSenha"/></p>
-                <p><input type="submit" value="login!"/></p>
+                <input type="hidden" name="command" value="login"/>
+                <p><input type="submit" value="login"/></p>
             </form>
         </header>
         <br/>

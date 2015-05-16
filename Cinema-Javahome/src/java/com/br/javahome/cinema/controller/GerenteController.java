@@ -33,6 +33,7 @@ public class GerenteController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("GERENTE");
         if (request != null && !("".equals(request.getParameter("command").trim()))) {
             switch (request.getParameter("command")) {
                 case "sala":

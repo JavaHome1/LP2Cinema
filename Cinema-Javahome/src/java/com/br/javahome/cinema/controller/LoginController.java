@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author 31458904
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/login"})
+@WebServlet(name = "LoginController", urlPatterns = {"/Login"})
 public class LoginController extends HttpServlet {
     private String nome;
     private String senha;
@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
             //verificar se gerente/usuario/atendente
-            
+            System.out.println("LOGINCONTROLLER");
             Autenticador aut=new Autenticador(nome,senha);
             System.out.println(aut.autentica());
             switch(aut.autentica()){
