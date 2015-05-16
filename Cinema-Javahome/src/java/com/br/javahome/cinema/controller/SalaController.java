@@ -43,17 +43,30 @@ public class SalaController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SalaController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SalaController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
+        
+        System.out.println(sala);
+        
+        SalaDAO salaDao = new SalaDAO();
+        ArrayList<Sala> salas = salaDao.read();
+        boolean achou = false;
+        
+        for (Sala salao : salas) {
+            if (salao.getIdSala() == sala.getIdSala()){
+                achou = true;
+                break;
+            }
+        }
+        
+        if (achou){
+            salaDao.update(sala);
+            System.out.println("achou!!!!");
+            request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
+        }
+        else{
+            salaDao.create(sala);
+            System.out.println("criou!!!!");
         }
     }
 
@@ -91,29 +104,6 @@ public class SalaController extends HttpServlet {
         this.poltronasEspeciais = Integer.parseInt(request.getParameter("campoPE"));
         this.estado = request.getParameter("estado");
         
-        Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
-        
-        System.out.println(sala);
-        
-        SalaDAO salaDao = new SalaDAO();
-        ArrayList<Sala> salas = salaDao.read();
-        boolean achou = false;
-        
-        for (Sala salao : salas) {
-            if (salao.getIdSala() == sala.getIdSala()){
-                achou = true;
-                break;
-            }
-        }
-        
-        if (achou){
-            salaDao.update(sala);
-            System.out.println("achou!!!!");
-        }
-        else{
-            salaDao.create(sala);
-            System.out.println("criou!!!!");
-        }
         
         
         

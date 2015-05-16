@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author felipemramos
  */
 public class MasterController extends HttpServlet {
-    
+
     private String command;
 
     /**
@@ -32,10 +32,9 @@ public class MasterController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+
         if (command != null && !"".equals(command)) {
-            if(command.equals("login")){
+            if (command.equals("Login")) {
                 System.out.println("/login");
                 RequestDispatcher rd = request.getRequestDispatcher("LoginController");
                 rd.forward(request, response);
@@ -45,29 +44,36 @@ public class MasterController extends HttpServlet {
                 rd.forward(request, response);
             }
 
-            if (command.startsWith("departamento.")) {
-                request.getRequestDispatcher("/departamento").forward(request, response);
+            if (command.startsWith("User.")) {
+                request.getRequestDispatcher("/User").forward(request, response);
             }
-
-            if (command.startsWith("funcionario.")) {
-                request.getRequestDispatcher("/funcionario").forward(request, response);
+            if (command.startsWith("Gerente.")) {
+                request.getRequestDispatcher("/Gerente").forward(request, response);
+            }
+            if (command.startsWith("Sala.")) {
+                request.getRequestDispatcher("/SalaController").forward(request, response);
+            }
+            if (command.startsWith("Filme.")) {
+                request.getRequestDispatcher("/FilmeController").forward(request, response);
+            }
+            if (command.startsWith("Sessao.")) {
+                request.getRequestDispatcher("/SessaoController").forward(request, response);
             }
         } else {
             response.sendRedirect("erro.jsp");
         }
-        
-        
-        
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MasterController</title>");            
+            out.println("<title>Servlet MasterController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet MasterController at " + command + "</h1>");
+            out.println("<h1>Presta atençao que mandou pro lugar errado ein! Estamos em MASTER</h1>");
+            out.println("<h3>Command =  " + command + "</h3>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -38,10 +38,13 @@ public class VendaController extends HttpServlet {
                     break;
                 case "Venda.ingresso":
                     request.getRequestDispatcher("WEB-INF/jsp/venda/VenderIngresso.jsp").forward(request, response);
-                    break;   
+                    break;
                 case "Venda.sessao":
                     request.getRequestDispatcher("WEB-INF/jsp/venda/SessoesFilme.jsp").forward(request, response);
-                    break;    
+                    break;
+                case "Venda.comprar":
+                    request.getRequestDispatcher("WEB-INF/erro.jsp").forward(request, response);
+                    break;
             }
         }
     }

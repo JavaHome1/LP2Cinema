@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="SalaController" method="POST">
+        <form action="MasterController" method="POST">
             <p>Numero:<input type="number" name="campoNumero" required/></p>
             <p>Capacidade:<input type="number" name="campoCapacidade" required/></p>
             <p>Poltronas Epeciais:<input type="number" name="campoPE" required/></p>
@@ -21,6 +21,7 @@
                 <br/><input type="radio" name="estado" value="Ativa"/>Ativa
                 <br/><input type="radio" name="estado" value="lotada"/>lotada
             </p>
+            <input type="hidden" name="command" value="Sala.manter"
             <p><input type="submit" value="Salvar"/></p>
         </form>
     </body>

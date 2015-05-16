@@ -16,6 +16,6 @@
         </br>
         </br>
         </br>
-        <a href="${pageContext.request.contextPath}/Venda?command=ingresso">[IMAGEM PLACEHOLDER]ir para seção de compra desse filme =D</a><br/>
+        <a href="${pageContext.request.contextPath}/MasterController?command=Venda.ingresso">[IMAGEM PLACEHOLDER]ir para seção de compra desse filme =D</a><br/>
     </body>
 </html>

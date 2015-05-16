@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>erro cara</h1>
+        <h1>erro cara, sinceras desculpas estamos resolvendo isso ;)</h1>
     </body>
 </html>

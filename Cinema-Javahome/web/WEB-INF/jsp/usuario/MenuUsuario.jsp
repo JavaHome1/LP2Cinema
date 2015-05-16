@@ -12,10 +12,11 @@
         <title>Home</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        Olá,<% out.print(request.getAttribute("nome")); %>
+        <h1>
+            Olá, <% out.print(request.getAttribute("nome"));%>
+        </h1>
         <br/>
-        <a href="${pageContext.request.contextPath}/Venda?command=catalogo">Acessar catálogo</a><br/>
-        <a href="${pageContext.request.contextPath}/User?command=perfil">Acessar perfil</a><br/>
+        <a href="${pageContext.request.contextPath}/MasterController?command=User.catalogo">Acessar catálogo</a><br/>
+        <a href="${pageContext.request.contextPath}/MasterController?command=User.perfil">Acessar perfil</a><br/>
     </body>
 </html>
