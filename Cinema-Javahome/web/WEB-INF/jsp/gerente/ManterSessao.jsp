@@ -19,7 +19,7 @@
     </head>
     <body>
         <h1>Manutenção de Sessão</h1>
-        <form action="SessaoController" method="POST">
+        <form action="MasterController" method="POST">
             <p>Sala:<select name="campoSala">
                     <%
                         for (Sala salao : SalaController.salasBanco()) {
@@ -42,6 +42,7 @@
             <p>Horario:<input type="text" name="campoHora" required/></p>
             <p>Quantidade Max:<input type="text" name="campoQTD" required/></p>
             <p>Preco:<input type="text" name="campoPreco" required/></p>
+            <input type="hidden" name="command" value="Sessao.manter"
             <p><input type="submit" value="Salvar"/></p>
         </form>
     </body>

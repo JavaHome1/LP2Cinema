@@ -38,8 +38,8 @@ and open the template in the editor.
             <form action="MasterController" method="POST">
                 <p>Usuario:<input type="text" name="campoNome"/></p>
                 <p>Senha:<input type="password" name="campoSenha"/></p>
-                <input type="hidden" name="command" value="login"/>
-                <p><input type="submit" value="login"/></p>
+                <input type="hidden" name="command" value="Login"/>
+                <p><input type="submit" value="Login"/></p>
             </form>
         </header>
         <br/>

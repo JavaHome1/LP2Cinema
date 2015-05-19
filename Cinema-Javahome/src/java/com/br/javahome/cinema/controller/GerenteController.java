@@ -36,31 +36,30 @@ public class GerenteController extends HttpServlet {
         System.out.println("GERENTE");
         if (request != null && !("".equals(request.getParameter("command").trim()))) {
             switch (request.getParameter("command")) {
-                case "sala":
+                case "Gerente.ingresso":
+                    request.getRequestDispatcher("WEB-INF/jsp/venda/VenderIngresso.jsp").forward(request, response);
+                    break;
+                    case "Gerente.catalogo":
+                    request.getRequestDispatcher("WEB-INF/jsp/venda/Catalogo.jsp").forward(request, response);
+                    break;
+                case "Gerente.sala":
                     request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterSala.jsp").forward(request, response);
                     break;
-                case "usuario":
+                case "Gerente.filme":
+                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterFilme.jsp").forward(request, response);
+                    break;
+                case "Gerente.sessao":
+                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterSessao.jsp").forward(request, response);
+                    break;
+                case "Gerente.usuario":
                     request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterUsuario.jsp").forward(request, response);
                     break;
-                case "ingresso":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/VenderIngresso.jsp").forward(request, response);
-                    break;    
-                case "filme":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterFilme.jsp").forward(request, response);
-                    break;   
-                case "sessao":
-                    request.getRequestDispatcher("WEB-INF/jsp/gerente/ManterSessao.jsp").forward(request, response);
-                    break;    
             }
         }
-            
-        
-        
-        
+
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

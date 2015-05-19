@@ -31,10 +31,10 @@ public class UserController extends HttpServlet {
             throws ServletException, IOException {
         if (request != null && !("".equals(request.getParameter("command").trim()))) {
             switch (request.getParameter("command")) {
-                case "catalogo":
+                case "User.catalogo":
                     request.getRequestDispatcher("WEB-INF/jsp/usuario/Catalogo.jsp").forward(request, response);
                     break;
-                case "perfil":
+                case "User.perfil":
                     request.getRequestDispatcher("WEB-INF/jsp/usuario/ManterPerfil.jsp").forward(request, response);
                     break;
 

@@ -42,6 +42,7 @@ public class SalaController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
         
         System.out.println(sala);
@@ -60,27 +61,11 @@ public class SalaController extends HttpServlet {
         if (achou){
             salaDao.update(sala);
             System.out.println("achou!!!!");
+            request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
         }
         else{
             salaDao.create(sala);
             System.out.println("criou!!!!");
-        }
-        response.setContentType("text/html;charset=UTF-8");
-        
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SalaController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SalaController at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Lista de salas: </h1>");
-            for (Sala salinha : salas )
-            out.println("<a> Número da sala:"+ salinha.getIdSala() +"<a/><br/>");
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
@@ -117,8 +102,7 @@ public class SalaController extends HttpServlet {
         this.capacidade = Integer.parseInt(request.getParameter("campoCapacidade"));
         this.poltronasEspeciais = Integer.parseInt(request.getParameter("campoPE"));
         this.estado = request.getParameter("estado");
-        
-        
+
         
         
         

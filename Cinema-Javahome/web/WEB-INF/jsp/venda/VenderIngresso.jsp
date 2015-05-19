@@ -16,15 +16,15 @@
     </head>
     <body>
         <h1>Venda de Ingressos</h1>
-        <form action="ComparController" method="POST">
-            
+        <form action="MasterController" method="POST">
+
             <p>Filme:<select >
                     <%
 //                        for (Filme filme : FilmeController.filmesBanco()) {
-                        Diretor d = new Diretor("Luciano","3");
+                        Diretor d = new Diretor("Luciano", "3");
                         Distribuidora dd = new Distribuidora("JavaMount");
-                        Filme filme = new Filme("frozen",120,'k',d,dd,true,"action");
-                            out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
+                        Filme filme = new Filme("frozen", 120, 'k', d, dd, true, "action");
+                        out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
 //                        }
                     %>
                 </select>
@@ -39,6 +39,7 @@
             </p>
             <p>Quantidade:<input type="number" name="campoQTD" required/></p>
             <p>Preco:R$</p>
+            <input type="hidden" name="command" value="Venda.comprar"/>
             <p><input type="submit" value="Comprar"/></p>
         </form>
     </body>
