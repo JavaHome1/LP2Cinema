@@ -27,8 +27,8 @@ public class AtorDAO implements GenericDAO<Ator> {
         try {
             connection = Conexao.getInstance().getConnection();//criando conexao
             Statement statement = connection.createStatement();//criando statement
-            statement.execute("INSERT INTO  CINEMAJAVA.ATOR (ID_ATOR,NOME,NACIONALIDADE,IDADE) VALUES '" + ator.getPk()+ "','"+ator.getNome()+"',"+ator.getNacionalidade()+"',"+ator.getDataNasc()+"'");//
-            connection.close();;
+            statement.execute("INSERT INTO  CINEMAJAVA.ATOR (ID_ATOR,NOME,NACIONALIDADE,IDADE) VALUES '" + ator.getPk()+ "','"+ator.getNome()+"','"+ator.getNacionalidade()+"','"+ator.getDataNasc()+"'");//
+            connection.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AtorDAO.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

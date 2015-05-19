@@ -1,9 +1,8 @@
-<%-- 
-    Document   : mantersalinha
-    Created on : 06/05/2015, 00:42:15
-    Author     : felipemramos
---%>
 
+
+<%@page import="com.br.javahome.cinema.model.Sala"%>
+<%@page import="com.br.javahome.cinema.model.DAO.SalaDAO"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,11 +16,20 @@
             <p>Capacidade:<input type="number" name="campoCapacidade" required/></p>
             <p>Poltronas Epeciais:<input type="number" name="campoPE" required/></p>
             <p>Estado
-                <br/><input type="radio" name="estado" value="manutenção" checked/>em manutenção
+                <br/><input type="radio" name="estado" value="manutenção" checked/>Em Manutenção
                 <br/><input type="radio" name="estado" value="Ativa"/>Ativa
-                <br/><input type="radio" name="estado" value="lotada"/>lotada
+                <br/><input type="radio" name="estado" value="lotada"/>Lotada
             </p>
             <p><input type="submit" value="Salvar"/></p>
         </form>
+        <h1>LISTAR SALAS</h1>
+        <%
+           SalaDAO saladao = new SalaDAO();
+           for (Sala sala : saladao.read() ){
+               out.println("<a> Número da sala:"+ sala.getIdSala() +"<a/><br/>"); // link vai pra pagina de edição de salas
+           } 
+            
+        %>  
+        
     </body>
 </html>

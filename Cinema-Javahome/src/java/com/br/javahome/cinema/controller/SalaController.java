@@ -76,6 +76,9 @@ public class SalaController extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet SalaController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Lista de salas: </h1>");
+            for (Sala salinha : salas )
+            out.println("<a> Número da sala:"+ salinha.getIdSala() +"<a/><br/>");
             out.println("</body>");
             out.println("</html>");
         }

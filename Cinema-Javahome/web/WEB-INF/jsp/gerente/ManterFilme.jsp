@@ -18,6 +18,7 @@
         
         listar filmes
         <%
+            FilmeDAO filmeDAO = new FilmeDAO();
            for(Filme filme : FilmeDAO.filmeBanco() ){
                out.println("<a>"+filme.getTitulo() + "<a/><br/>"); // link vai pra pagina de edição de filme 
            } 
