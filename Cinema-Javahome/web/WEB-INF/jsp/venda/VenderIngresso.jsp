@@ -4,6 +4,9 @@
     Author     : Rodrigo-Friedrich
 --%>
 
+<%@page import="com.br.javahome.cinema.model.Sessao"%>
+<%@page import="com.br.javahome.cinema.model.DAO.SessaoDAO"%>
+<%@page import="com.br.javahome.cinema.model.DAO.FilmeDAO"%>
 <%@page import="com.br.javahome.cinema.model.Distribuidora"%>
 <%@page import="com.br.javahome.cinema.model.Diretor"%>
 <%@page import="com.br.javahome.cinema.model.Filme"%>
@@ -20,24 +23,26 @@
 
             <p>Filme:<select >
                     <%
-//                        for (Filme filme : FilmeController.filmesBanco()) {
-                        Diretor d = new Diretor("Luciano", "3");
-                        Distribuidora dd = new Distribuidora("JavaMount");
-                        Filme filme = new Filme("frozen", 120, 'k', d, dd, true, "action");
-                        out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
-//                        }
+                        
+                        FilmeDAO fdao = new FilmeDAO();
+                        for (Filme filme : fdao.read()) {
+                            out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
+                        }
                     %>
                 </select>
             </p>
             <p>Sessoes:<select name="campoSala">
                     <%
-//                        for (Sala salao : SalaController.salasBanco()) {
-//                            out.print("<option  value='" + salao.getIdSala() + "'>" + salao.getIdSala() + "</option>");
-//                        }
+                        SessaoDAO sdao = new SessaoDAO();
+                        for (Sessao sessao : sdao.read()) {
+                            out.print("<option  value='" + sessao.getPk() + "'>" + sessao.getHorario() + "</option>");
+                        }
                     %>
                 </select>
             </p>
-            <p>Quantidade:<input type="number" name="campoQTD" required/></p>
+            <p>Quantidade de ingressos:<br/>
+            <p>Inteira<input type="number" name="campoQTDI" required/></p>
+            <p>meia:<input type="number" name="campoQTDM" required/></p>
             <p>Preco:R$</p>
             <input type="hidden" name="command" value="Venda.comprar"/>
             <p><input type="submit" value="Comprar"/></p>

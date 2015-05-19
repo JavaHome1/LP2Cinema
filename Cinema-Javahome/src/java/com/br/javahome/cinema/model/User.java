@@ -19,6 +19,12 @@ public class User {
         this.senha = senha;
         this.id_func = id_func;
     }
+
+    public User(String nome, String senha) {
+        this.nome = nome;
+        this.senha = senha;
+    }
+    
     
     
     public String getNome() {

@@ -25,7 +25,7 @@ public class UserDAO implements GenericDAO<User> {
         try {
             connection = Conexao.getInstance().getConnection();//criando conexao
             Statement statement = connection.createStatement();//criando statement
-            statement.execute("INSERT INTO  CINEMAJAVA.USUARIO (ID_FUNC,NOME,SENHA) VALUES '" + user.getId_func()+ "','"+user.getNome()+"',"+user.getSenha()+"'");//
+            statement.execute("INSERT INTO  CINEMAJAVA.USUARIO (NOME,SENHA) VALUES ('"+user.getNome()+"','"+user.getSenha()+"')");//
             connection.close();;
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,7 +46,7 @@ public class UserDAO implements GenericDAO<User> {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery("SELECT * FROM CINEMAJAVA.USUARIO");
             while (result.next()) {
-                users.add(new User(result.getString("NOME"),result.getString("SENHA"),result.getInt("ID_FUNC")));
+                users.add(new User(result.getString("NOME"),result.getString("SENHA"),result.getInt("ID_USER")));
             }
             connection.close();
 
