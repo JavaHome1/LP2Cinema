@@ -28,7 +28,7 @@ public class DiretorDAO implements GenericDAO<Diretor> {
         try {
             connection = Conexao.getInstance().getConnection();//criando conexao
             Statement statement = connection.createStatement();//criando statement
-            statement.execute("INSERT INTO  CINEMAJAVA.DIRETOR (ID_DIRETOR,NOME,REG) VALUES '" + dir.getPk()+ "','"+dir.getNome()+"',"+dir.getReg()+"'");//
+            statement.execute("INSERT INTO  CINEMAJAVA.DIRETOR (NOME,REG) VALUES ('"+dir.getNome()+"','"+dir.getReg()+"')");//
             connection.close();;
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DiretorDAO.class.getName()).log(Level.SEVERE, null, ex);

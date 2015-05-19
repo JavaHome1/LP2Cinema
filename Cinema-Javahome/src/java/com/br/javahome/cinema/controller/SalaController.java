@@ -43,7 +43,7 @@ public class SalaController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Sala sala =new Sala(numero,capacidade,poltronasEspeciais,estado);
+        Sala sala = new Sala(numero,capacidade,poltronasEspeciais,estado);
         
         System.out.println(sala);
         

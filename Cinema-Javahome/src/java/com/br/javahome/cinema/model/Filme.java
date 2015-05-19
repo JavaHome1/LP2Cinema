@@ -5,6 +5,10 @@
  */
 package com.br.javahome.cinema.model;
 
+import com.br.javahome.cinema.model.DAO.DiretorDAO;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author felipemramos
@@ -71,6 +75,7 @@ public class Filme {
 
 
 
+    
 
     public boolean isEstreia() {
         return estreia;
@@ -89,14 +94,30 @@ public class Filme {
         this.genero = genero;
     }
 
-    public Filme(String titulo, int duracao, char classificacao, Diretor diretor, Distribuidora distribuidora, boolean estreia, String genero) {
+    public Filme(String titulo, int duracao, char classificacao, Diretor diretor, boolean estreia, String genero) {
         this.titulo = titulo;
         this.duracao = duracao;
         this.classificacao = classificacao;
         this.diretor = diretor;
-        this.distribuidora = distribuidora;
         this.estreia = estreia;
         this.genero = genero;
+    }
+    
+    public Filme(String titulo, int duracao, String classificacao, int idDiretor, boolean estreia, String genero) {
+        this.titulo = titulo;
+        this.duracao = duracao;
+        this.classificacao = classificacao.charAt(0);
+        
+        this.estreia = estreia;
+        this.genero = genero;
+        
+        DiretorDAO dir = new DiretorDAO();
+        List<Diretor> dirAr = dir.read();
+        for (Diretor dirAr1 : dirAr) {
+            if (dirAr1.getPk() == idDiretor) {
+                this.diretor = dirAr1;
+            }
+        }
     }
 
     @Override
