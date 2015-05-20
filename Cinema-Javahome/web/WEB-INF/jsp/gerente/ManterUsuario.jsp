@@ -20,7 +20,7 @@
 
             UserDAO udao = new UserDAO();
             for (User usuario : udao.read()) {
-                out.print(usuario.getNome()+"<a>EDITAR</a><a href='MasterController?command=User.promover&nome="+usuario.getNome()+"'>PROMOVER</a><a>DELETAR</a></p>");
+                out.print(usuario.getNome()+"<a href='MasterController?command=User.promover&nome="+usuario.getNome()+"'>PROMOVER</a><a href='MasterController?command=User.deletar&nome="+usuario.getNome()+"'>DELETAR</a></p>");
             }
         %>
     </body>

@@ -91,7 +91,7 @@ public class UserDAO implements GenericDAO<User> {
         try {
             Connection connection = Conexao.getInstance().getConnection();
             Statement statement = connection.createStatement();
-            statement.execute("DELETE FROM CINEMAJAVA.USUARIO WHERE NOME = " + user.getNome());
+            statement.execute("DELETE FROM CINEMAJAVA.USUARIO WHERE NOME = '" + user.getNome()+"'");
             connection.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
