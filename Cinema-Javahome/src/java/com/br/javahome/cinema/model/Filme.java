@@ -19,7 +19,6 @@ public class Filme {
     private int duracao;
     private char classificacao;
     private Diretor diretor;
-    private Distribuidora distribuidora;
     private boolean estreia;
     private String genero;
 
@@ -64,19 +63,6 @@ public class Filme {
     public void setDiretor(Diretor diretor) {
         this.diretor = diretor;
     }
-
-    public Distribuidora getDistribuidora() {
-        return distribuidora;
-    }
-
-    public void setDistribuidora(Distribuidora distribuidora) {
-        this.distribuidora = distribuidora;
-    }
-
-
-
-    
-
     public boolean isEstreia() {
         return estreia;
     }
@@ -122,7 +108,7 @@ public class Filme {
 
     @Override
     public String toString() {
-        return "Filme{" + "id=" + pk + ", titulo=" + titulo + ", duracao=" + duracao + ", classificacao=" + classificacao + ", diretor=" + diretor + ", distribuidora=" + distribuidora + ", estreia=" + estreia + ", genero=" + genero + '}';
+        return "Filme{" + "id=" + pk + ", titulo=" + titulo + ", duracao=" + duracao + ", classificacao=" + classificacao + ", diretor=" + diretor + ", estreia=" + estreia + ", genero=" + genero + '}';
     }
     
     

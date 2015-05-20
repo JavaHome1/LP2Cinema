@@ -29,7 +29,9 @@ public class Diretor implements Serializable{
         this.nome = nome;
         this.reg = reg;
     }
-    
+    public Diretor(String nome) {
+        this.nome = nome;
+    }
     
 
     public String getReg() {

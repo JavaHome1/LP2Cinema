@@ -4,6 +4,8 @@
     Author     : Rodrigo-Friedrich
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.br.javahome.cinema.model.DAO.FilmeDAO"%>
 <%@page import="com.br.javahome.cinema.model.Distribuidora"%>
 <%@page import="com.br.javahome.cinema.model.Diretor"%>
 <%@page import="com.br.javahome.cinema.model.Filme"%>
@@ -20,16 +22,15 @@
 
             <p>Filme:<select >
                     <%
-//                        for (Filme filme : FilmeController.filmesBanco()) {
-                        Diretor d = new Diretor("Luciano", "3");
-                        Distribuidora dd = new Distribuidora("JavaMount");
-                        Filme filme = new Filme("frozen", 120, 'k', d, dd, true, "action");
-                        out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
-//                        }
+                        FilmeDAO fdao = new FilmeDAO();
+                        List<Filme> filmes = fdao.read();
+                        for(Filme filme: filmes){
+                            out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
+                        }    
                     %>
                 </select>
             </p>
-            <p>Sessoes:<select name="campoSala">
+            <p>Sessoes:<select name="campoSessao">
                     <%
 //                        for (Sala salao : SalaController.salasBanco()) {
 //                            out.print("<option  value='" + salao.getIdSala() + "'>" + salao.getIdSala() + "</option>");
@@ -38,7 +39,7 @@
                 </select>
             </p>
             <p>Quantidade:<input type="number" name="campoQTD" required/></p>
-            <p>Preco:R$</p>
+            <p>Preco:R$ </p>
             <input type="hidden" name="command" value="Venda.comprar"/>
             <p><input type="submit" value="Comprar"/></p>
         </form>

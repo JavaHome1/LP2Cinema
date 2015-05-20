@@ -24,5 +24,7 @@
            } 
             
         %>
+        
+        <h1><a href="${pageContext.request.contextPath}/MasterController?command=Filme.criar">SETAR FILME</a><br/></h1>
     </body>
 </html>
