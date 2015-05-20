@@ -5,6 +5,8 @@
 --%>
 
 <%@page import="java.util.List"%>
+<%@page import="com.br.javahome.cinema.model.Sessao"%>
+<%@page import="com.br.javahome.cinema.model.DAO.SessaoDAO"%>
 <%@page import="com.br.javahome.cinema.model.DAO.FilmeDAO"%>
 <%@page import="com.br.javahome.cinema.model.Distribuidora"%>
 <%@page import="com.br.javahome.cinema.model.Diretor"%>
@@ -23,23 +25,26 @@
             <p>Filme:<select >
                     <%
                         FilmeDAO fdao = new FilmeDAO();
-                        List<Filme> filmes = fdao.read();
-                        for(Filme filme: filmes){
+                        for (Filme filme : fdao.read()) {
                             out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
-                        }    
+                        }
+
                     %>
                 </select>
             </p>
             <p>Sessoes:<select name="campoSessao">
                     <%
-//                        for (Sala salao : SalaController.salasBanco()) {
-//                            out.print("<option  value='" + salao.getIdSala() + "'>" + salao.getIdSala() + "</option>");
-//                        }
+                        SessaoDAO sdao = new SessaoDAO();
+                        for (Sessao sessao : sdao.read()) {
+                            out.print("<option  value='" + sessao.getPk() + "'>" + sessao.getHorario() + "</option>");
+                        }
                     %>
                 </select>
             </p>
-            <p>Quantidade:<input type="number" name="campoQTD" required/></p>
-            <p>Preco:R$ </p>
+            <p>Quantidade de ingressos:<br/></p>
+            <p>Inteira<input type="number" name="campoQTDI" required/></p>
+            <p>meia:<input type="number" name="campoQTDM" required/></p>
+            <p>Preco:R$</p>
             <input type="hidden" name="command" value="Venda.comprar"/>
             <p><input type="submit" value="Comprar"/></p>
         </form>

@@ -15,14 +15,13 @@
     </head>
     <body>
         <h1>Manutenção de Filmes</h1>
-        
-        listar filmes
+
         <%
-            FilmeDAO filmeDAO = new FilmeDAO();
-           for(Filme filme : FilmeDAO.filmeBanco() ){
-               out.println("<a>"+filme.getTitulo() + "<a/><br/>"); // link vai pra pagina de edição de filme 
-           } 
-            
+
+            FilmeDAO fdao = new FilmeDAO();
+            for (Filme filme : fdao.read()) {
+                out.print("<p><option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option><a>editar</a><a>DELETAR</a></p>");
+            }
         %>
         
         <h1><a href="${pageContext.request.contextPath}/MasterController?command=Filme.criar">SETAR FILME</a><br/></h1>

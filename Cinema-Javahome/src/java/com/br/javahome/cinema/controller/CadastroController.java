@@ -5,6 +5,8 @@
  */
 package com.br.javahome.cinema.controller;
 
+import com.br.javahome.cinema.model.DAO.UserDAO;
+import com.br.javahome.cinema.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,10 +19,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author 31458904
  */
 public class CadastroController extends HttpServlet {
+
+    private boolean naoExiste = true;
     private String email;
     private String nome;
     private String senha;
-    private int id_func = 2;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,22 +36,40 @@ public class CadastroController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastroController</title>");            
+            out.println("<title>Servlet CadastroController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>NOT YET IMPLEMENTED!!!</h1>");
-            out.println(email+" <-email<br/>");
-            out.println(nome+" <-nome <br/>");
-            out.println(senha);
+
+            UserDAO udao = new UserDAO();
+
+            for (User user : udao.read()) {
+                if (user.getNome().equals(nome)) {
+                    System.out.println("usuario ja existente");
+                    naoExiste = false;
+                }
+            }
+            
+            if (naoExiste) {
+                udao.create(new User(nome, senha));
+                out.println("<h1>Usuario Criado</h1>");
+                System.out.println("criou");
+            } else {
+                System.out.println("nao criou");
+                out.println("<h1>Usuario ja existente</h1>");
+
+            }
+
             out.println("</body>");
             out.println("</html>");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -77,11 +98,11 @@ public class CadastroController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        email=request.getParameter("campoEmail");
-        nome=request.getParameter("campoNome");
-        senha=request.getParameter("campoSenha");
-        
+
+        email = request.getParameter("campoEmail");
+        nome = request.getParameter("campoNome");
+        senha = request.getParameter("campoSenha");
+
         processRequest(request, response);
     }
 

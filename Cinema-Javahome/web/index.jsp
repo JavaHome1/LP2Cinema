@@ -48,10 +48,11 @@ and open the template in the editor.
         <br/>
         <br/>
         <br/>
-        <form action="CadastroController" method="POST">
+        <form action="MasterController" method="POST">
             <p>Email:<input type="text" name="campoEmail"/></p>
             <p>Usuario:<input type="text" name="campoNome"/></p>
             <p>Senha:<input type="password" name="campoSenha"/></p>
+            <input type="hidden" value="Cadastro"
             <p><input type="submit" value="cadastrar"/></p>
         </form>
         <footer>

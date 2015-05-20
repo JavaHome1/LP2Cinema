@@ -59,6 +59,9 @@ public class MasterController extends HttpServlet {
             if (command.startsWith("Sessao.")) {
                 request.getRequestDispatcher("/SessaoController").forward(request, response);
             }
+            if (command.startsWith("Cadastro")) {
+                request.getRequestDispatcher("/CadastroController").forward(request, response);
+            }
         } else {
             response.sendRedirect("erro.jsp");
         }
