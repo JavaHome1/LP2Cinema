@@ -5,6 +5,8 @@
  */
 package com.br.javahome.cinema.controller;
 
+import com.br.javahome.cinema.model.DAO.UserDAO;
+import com.br.javahome.cinema.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,6 +19,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Rodrigo-Friedrich
  */
 public class UserController extends HttpServlet {
+    private String nome;
+    private final UserDAO udao = new UserDAO();
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,6 +42,18 @@ public class UserController extends HttpServlet {
                 case "User.perfil":
                     request.getRequestDispatcher("WEB-INF/jsp/usuario/ManterPerfil.jsp").forward(request, response);
                     break;
+                    case "User.promover":
+                        udao.read();
+                        for (User user : udao.read()) {
+                            if (user.getNome().equals(nome)) {
+                                System.out.println(user);
+                                udao.upgrade(user);
+                                System.out.println(user);
+                            }
+                        }
+                        
+                    request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
+                    break;
 
             }
         }
@@ -54,6 +71,8 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        nome = request.getParameter("nome");
         processRequest(request, response);
     }
 
