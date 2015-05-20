@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/felipemramos/Desktop/JAVAFLIX/LP2Cinema/Cinema-Javahome/web/WEB-INF/jsp/usuario/atualizar.jsp</file>
             <file>file:/Users/felipemramos/Desktop/JAVAFLIX/LP2Cinema/Cinema-Javahome/src/java/com/br/javahome/cinema/controller/UserController.java</file>
-            <file>file:/Users/felipemramos/Desktop/JAVAFLIX/LP2Cinema/Cinema-Javahome/web/WEB-INF/jsp/gerente/ManterUsuario.jsp</file>
+            <file>file:/Users/felipemramos/Desktop/JAVAFLIX/LP2Cinema/Cinema-Javahome/web/WEB-INF/jsp/usuario/MenuUsuario.jsp</file>
+            <file>file:/Users/felipemramos/Desktop/JAVAFLIX/LP2Cinema/Cinema-Javahome/web/WEB-INF/jsp/usuario/ManterPerfil.jsp</file>
+            <file>file:/Users/felipemramos/Desktop/JAVAFLIX/LP2Cinema/Cinema-Javahome/src/java/com/br/javahome/cinema/model/User.java</file>
+            <file>file:/Users/felipemramos/Desktop/JAVAFLIX/LP2Cinema/Cinema-Javahome/src/java/com/br/javahome/cinema/model/DAO/UserDAO.java</file>
         </group>
     </open-files>
 </project-private>

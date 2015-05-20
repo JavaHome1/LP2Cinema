@@ -66,6 +66,7 @@ public class SalaController extends HttpServlet {
         else{
             salaDao.create(sala);
             System.out.println("criou!!!!");
+            request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
         }
     }
 

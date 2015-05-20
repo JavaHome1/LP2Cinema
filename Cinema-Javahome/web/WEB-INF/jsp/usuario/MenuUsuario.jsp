@@ -17,6 +17,9 @@
         </h1>
         <br/>
         <a href="${pageContext.request.contextPath}/MasterController?command=User.catalogo">Acessar catálogo</a><br/>
-        <a href="${pageContext.request.contextPath}/MasterController?command=User.perfil">Acessar perfil</a><br/>
+        <% 
+            out.println("<a href='MasterController?command=User.perfil&nome="+request.getAttribute("nome")+"'>Acessar perfil</a><br/>");
+        %>
+        
     </body>
 </html>

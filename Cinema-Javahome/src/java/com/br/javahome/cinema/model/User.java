@@ -12,6 +12,7 @@ package com.br.javahome.cinema.model;
 public class User {
     private String nome;
     private String senha;
+    private String email;
     private int id_func;
     private boolean isAdmin;
 
@@ -26,6 +27,14 @@ public class User {
         this.nome = nome;
         this.senha = senha;
     }
+
+    public User(String nome, String senha, String email) {
+        this.nome = nome;
+        this.senha = senha;
+        this.email = email;
+    }
+    
+    
     
     
     
@@ -45,6 +54,16 @@ public class User {
         this.senha = senha;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
+    
     public int getId_func() {
         return id_func;
     }

@@ -13,5 +13,7 @@
     </head>
     <body>
         <h1>MANTER PERFIL!</h1>
+        <p><a href="${pageContext.request.contextPath}/MasterController?command=User.atualizar">atualizar</a></p>
+        <p><a href="${pageContext.request.contextPath}/MasterController?command=User.deletarU">morrer</a></p>
     </body>
 </html>

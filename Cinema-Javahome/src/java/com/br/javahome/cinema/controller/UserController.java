@@ -22,6 +22,8 @@ public class UserController extends HttpServlet {
 
     private String nome;
     private final UserDAO udao = new UserDAO();
+    private String senha;
+    private String email;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -62,6 +64,31 @@ public class UserController extends HttpServlet {
 
                     request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
                     break;
+                case "User.deletarU":
+                    for (User user : udao.read()) {
+                        if (user.getNome().equals(nome)) {
+                            udao.delete(user);
+                        }
+                    }
+
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    break;
+
+                case "User.atualizar":
+
+                    request.getRequestDispatcher("WEB-INF/jsp/usuario/atualizar.jsp").forward(request, response);
+                    break;
+                case "User.update":
+                    System.out.println(nome);
+                    for (User user : udao.read()) {
+                        if (user.getNome().equals(nome)) {
+                            System.out.println("aquela achada");
+                            udao.update(new User(user.getNome(), user.getSenha(), user.getEmail()));
+                        }
+                    }
+
+                    request.getRequestDispatcher("WEB-INF/jsp/usuario/MenuUsuario.jsp").forward(request, response);
+                    break;
 
             }
         }
@@ -95,6 +122,12 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        if (request.getParameter("command").equals("User.update")) {
+            this.senha = request.getParameter("senha");
+            this.email = request.getParameter("email");
+        }
+
         processRequest(request, response);
     }
 

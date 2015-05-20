@@ -65,7 +65,7 @@ public class UserDAO implements GenericDAO<User> {
         try {
             Connection connection = Conexao.getInstance().getConnection();
             Statement statement = connection.createStatement();
-            statement.execute("UPDATE CINEMAJAVA.USUARIO SET NOME= '" + user.getNome());//permitir mudança de senha e de função
+            statement.execute("UPDATE CINEMAJAVA.USUARIO SET SENHA= '" + user.getSenha()+"WHERE NOME="+user.getNome());//permitir mudança de senha e de função
             connection.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
