@@ -30,7 +30,7 @@ public class FilmeDAO implements GenericDAO<Filme>{
         try {
             connection = Conexao.getInstance().getConnection();//criando conexao
             Statement statement = connection.createStatement();//criando statement
-            statement.execute("INSERT INTO CINEMAJAVA.FILME(TITULO,DURACAO,CLASSIFICACAO,ID_DIRETOR,ESTREIA,GENERO) VALUES ("+filme.getTitulo()+","+filme.getDuracao()+","+filme.getClassificacao()+","+filme.getDiretor().getPk()+","+filme.isEstreia()+","+filme.getGenero()+",");//
+            statement.execute("INSERT INTO CINEMAJAVA.FILME(TITULO,DURACAO,CLASSIFICACAO,ID_DIRETOR,ESTREIA,GENERO) VALUES ('"+filme.getTitulo()+"',"+filme.getDuracao()+",'"+filme.getClassificacao()+"',"+filme.getDiretor().getPk()+","+filme.isEstreia()+",'"+filme.getGenero()+"')");//
             connection.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SalaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,7 +81,7 @@ public class FilmeDAO implements GenericDAO<Filme>{
         try {
             Connection connection = Conexao.getInstance().getConnection();
             Statement statement = connection.createStatement();
-            statement.execute("DELETE FROM CINEMAJAVA.FILME WHERE ID_FILME = " + filme.getPk());
+            statement.execute("DELETE FROM CINEMAJAVA.FILME WHERE TITULO = '" + filme.getTitulo()+"'");
             connection.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SalaDAO.class.getName()).log(Level.SEVERE, null, ex);

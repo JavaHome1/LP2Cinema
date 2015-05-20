@@ -21,8 +21,8 @@
 
             FilmeDAO fdao = new FilmeDAO();
             for (Filme filme : fdao.read()) {
-                out.print("<p>" + filme.getTitulo() + "<a href=${pageContext.request.contextPath}/MasterController?command=Filme.editar&nome="+filme.getTitulo()+">EDITAR </a>"
-                        + "<a href=${pageContext.request.contextPath}/MasterController?command=Filme.deletar&nome="+filme.getTitulo()+"> DELETAR</a></p>");
+                out.print("<p>" + filme.getTitulo() + "<a href='MasterController?command=Filme.editar&nome="+filme.getTitulo()+"'>EDITAR </a>"
+                        + "<a href='MasterController?command=Filme.deletar&nome="+filme.getTitulo()+"'> DELETAR</a></p>");
             }
         %>
         

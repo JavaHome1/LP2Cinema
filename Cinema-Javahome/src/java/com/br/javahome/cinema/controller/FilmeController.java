@@ -61,13 +61,16 @@ public class FilmeController extends HttpServlet {
                         ddao.create(new Diretor(this.diretor));
                         this.idDir = buscaIdDir(this.diretor);
                     }
+                    System.out.println(idDir);
                     fdao.create(new Filme(titulo,duracao,classificacao,idDir,estreia,genero));
                     break;
                 case "Filme.deletar":
+                    System.out.println("entrou no filme.deletar");
                     for (Filme filme1 : fdao.read()) {
-                        if(filme1.getTitulo() == titulo)
+                        if(filme1.getTitulo().equals(titulo))
                             fdao.delete(filme1);
                     }
+                    request.getRequestDispatcher("WEB-INF/jsp/gerente/MenuGerente.jsp").forward(request, response);
                     break;
                 case "Filme.editar":
                     
@@ -93,7 +96,7 @@ public class FilmeController extends HttpServlet {
      */
     public int buscaIdDir(String nome) {
         for (Diretor diretor1 : ddao.read()) {
-            if (nome == diretor1.getNome()) {
+            if (nome.equals(diretor1.getNome())) {
                 return diretor1.getPk();
             }
         }
