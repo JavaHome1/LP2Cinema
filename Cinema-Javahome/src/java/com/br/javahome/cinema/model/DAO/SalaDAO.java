@@ -27,7 +27,7 @@ public class SalaDAO implements GenericDAO<Sala>{
         try {
             connection = Conexao.getInstance().getConnection();//criando conexao
             Statement statement = connection.createStatement();//criando statement
-            statement.execute("INSERT INTO CINEMAJAVA.SALAS(ID_SALA,CAPACIDADE,POLTRONAS_ESPECIAIS,ESTADO) VALUES ("+sala.getIdSala()+","+sala.getCapacidade()+","+sala.getPoltronasEspeciais()+",'"+sala.getEstado()+"')");//
+            statement.execute("INSERT INTO CINEMAJAVA.SALAS(ID_SALA,CAPACIDADE,POLTRONASESPECIAIS,ESTADO) VALUES ("+sala.getIdSala()+","+sala.getCapacidade()+","+sala.getPoltronasEspeciais()+",'"+sala.getEstado()+"')");//
             connection.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SalaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,7 +49,7 @@ public class SalaDAO implements GenericDAO<Sala>{
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery("SELECT * FROM CINEMAJAVA.SALAS");
             while (result.next()) {
-                salas.add(new Sala(result.getInt("ID_SALA"),result.getInt("CAPACIDADE"),result.getInt("POLTRONAS_ESPECIAIS"),result.getString("ESTADO")));
+                salas.add(new Sala(result.getInt("ID_SALA"),result.getInt("CAPACIDADE"),result.getInt("POLTRONASESPECIAIS"),result.getString("ESTADO")));
             }
             connection.close();
 

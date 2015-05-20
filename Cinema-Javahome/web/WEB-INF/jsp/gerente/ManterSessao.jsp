@@ -4,6 +4,7 @@
     Author     : Rodrigo-Friedrich
 --%>
 
+<%@page import="com.br.javahome.cinema.model.DAO.SalaDAO"%>
 <%@page import="com.br.javahome.cinema.model.DAO.FilmeDAO"%>
 <%@page import="com.br.javahome.cinema.model.Distribuidora"%>
 <%@page import="com.br.javahome.cinema.model.Distribuidora"%>
@@ -23,7 +24,9 @@
         <form action="MasterController" method="POST">
             <p>Sala:<select name="campoSala">
                     <%
-                        for (Sala salao : SalaController.salasBanco()) {
+                        SalaDAO salaDao = new SalaDAO();
+                        for (Sala salao : salaDao.read()) {
+                            System.out.println(salao.getIdSala());
                             out.print("<option  value='" + salao.getIdSala() + "'>" + salao.getIdSala() + "</option>");
                         }
                     %>
