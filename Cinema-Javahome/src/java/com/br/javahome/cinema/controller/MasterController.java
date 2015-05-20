@@ -75,7 +75,7 @@ public class MasterController extends HttpServlet {
             out.println("<title>Servlet MasterController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Presta atençao que mandou pro lugar errado ein! Estamos em MASTER</h1>");
+            out.println("<h1>Presta atençao que mandou pro lugar errado hein! Estamos em MASTER</h1>");
             out.println("<h3>Command =  " + command + "</h3>");
             out.println("</body>");
             out.println("</html>");

@@ -4,6 +4,7 @@
     Author     : Rodrigo-Friedrich
 --%>
 
+<%@page import="com.br.javahome.cinema.controller.MasterController"%>
 <%@page import="com.br.javahome.cinema.model.DAO.FilmeDAO"%>
 <%@page import="com.br.javahome.cinema.model.Filme"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,10 +21,11 @@
 
             FilmeDAO fdao = new FilmeDAO();
             for (Filme filme : fdao.read()) {
-                out.print("<p><option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option><a>editar</a><a>DELETAR</a></p>");
+                out.print("<p>" + filme.getTitulo() + "<a href=${pageContext.request.contextPath}/MasterController?command=Filme.editar&nome="+filme.getTitulo()+">EDITAR </a>"
+                        + "<a href=${pageContext.request.contextPath}/MasterController?command=Filme.deletar&nome="+filme.getTitulo()+"> DELETAR</a></p>");
             }
         %>
         
-        <h1><a href="${pageContext.request.contextPath}/MasterController?command=Filme.criar">SETAR FILME</a><br/></h1>
+        <a href="${pageContext.request.contextPath}/MasterController?command=Filme.criar">Criar novo filme</a><br/>
     </body>
 </html>
