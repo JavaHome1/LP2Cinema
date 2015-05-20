@@ -20,7 +20,7 @@
 
             UserDAO udao = new UserDAO();
             for (User usuario : udao.read()) {
-                out.print("<p><option  value='" + usuario.getNome() + "'>" + usuario.getNome() + "</option><a>editar</a><a>DELETAR</a></p>");
+                out.print("<p><option  value='" + usuario.getNome() + "'>" + usuario.getNome() + "</option><a>EDITAR</a><a href='MasterController?command=User.promover&nome="+usuario.getNome()+"'>PROMOVER</a><a>DELETAR</a></p>");
             }
         %>
     </body>

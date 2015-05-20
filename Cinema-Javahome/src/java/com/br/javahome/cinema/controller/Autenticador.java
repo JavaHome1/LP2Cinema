@@ -1,32 +1,36 @@
-
 package com.br.javahome.cinema.controller;
 
+import com.br.javahome.cinema.model.DAO.UserDAO;
 import com.br.javahome.cinema.model.User;
 import java.util.ArrayList;
-
 
 /**
  *
  * @author 31409490
  */
 public class Autenticador {
-    private String nome,senha;
+
+    private String nome, senha;
     private int id_func;
 
     public Autenticador(String nome, String senha) {
         this.nome = nome;
         this.senha = senha;
     }
-    
-    public int autentica(){
-        ArrayList<User> users = new ArrayList<>();// alterar para consulta no banco de dados
-            users.add(new User("user","user",1));// remover os add
-            users.add(new User("admin","admin",0));
-            for (User user : users) {
-                if (nome.equals(user.getNome()) && senha.equals(user.getSenha())) {
-                    return user.getId_func();
+
+    public int autentica() {
+        UserDAO udao = new UserDAO();
+        for (User usuario : udao.read()) {
+            if (nome.equals(usuario.getNome()) && senha.equals(usuario.getSenha())) {
+            System.out.println("ISADMINNNNNN :"+usuario.isIsAdmin());
+                if(usuario.isIsAdmin()){
+                    return 0;
+                }
+                else{
+                    return 1;
                 }
             }
-            return -1; 
+        }
+        return -1;
     }
 }

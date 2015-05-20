@@ -13,11 +13,13 @@ public class User {
     private String nome;
     private String senha;
     private int id_func;
+    private boolean isAdmin;
 
-    public User(String nome, String senha, int id_func) {
+    public User(String nome, String senha, int id_func,boolean adm ) {
         this.nome = nome;
         this.senha = senha;
         this.id_func = id_func;
+        this.isAdmin = adm;
     }
 
     public User(String nome, String senha) {
@@ -49,6 +51,19 @@ public class User {
 
     public void setId_func(int id_func) {
         this.id_func = id_func;
+    }
+
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "nome=" + nome + ", senha=" + senha + ", id_func=" + id_func + ", isAdmin=" + isAdmin + '}';
     }
     
     
