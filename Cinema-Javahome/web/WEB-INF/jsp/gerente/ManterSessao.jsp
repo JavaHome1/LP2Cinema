@@ -4,6 +4,7 @@
     Author     : Rodrigo-Friedrich
 --%>
 
+<%@page import="com.br.javahome.cinema.model.DAO.FilmeDAO"%>
 <%@page import="com.br.javahome.cinema.model.Distribuidora"%>
 <%@page import="com.br.javahome.cinema.model.Distribuidora"%>
 <%@page import="com.br.javahome.cinema.model.Diretor"%>
@@ -29,20 +30,18 @@
                 </select>
             </p>
             <p>Filme:<select >
-                    <%
-//                        for (Filme filme : FilmeController.filmesBanco()) {
-                        Diretor d = new Diretor("Luciano","3");
-                        Distribuidora dd = new Distribuidora("JavaMount");
-                        Filme filme = new Filme("frozen",120,'k',d,dd,true,"action");
-                            out.print("<option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option>");
-//                        }
-                    %>
+            <%
+            FilmeDAO fdao = new FilmeDAO();
+            for (Filme filme : fdao.read()) {
+                out.print("<p><option  value='" + filme.getTitulo() + "'>" + filme.getTitulo() + "</option><a>editar</a><a>DELETAR</a></p>");
+            }
+            %>
                 </select>
             </p>
             <p>Horario:<input type="text" name="campoHora" required/></p>
             <p>Quantidade Max:<input type="text" name="campoQTD" required/></p>
             <p>Preco:<input type="text" name="campoPreco" required/></p>
-            <input type="hidden" name="command" value="Sessao.manter"
+            <input type="hidden" name="command" value="Sessao.manter">
             <p><input type="submit" value="Salvar"/></p>
         </form>
     </body>

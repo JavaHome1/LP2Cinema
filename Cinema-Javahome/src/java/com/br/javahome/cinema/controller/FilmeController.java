@@ -8,6 +8,7 @@ package com.br.javahome.cinema.controller;
 import com.br.javahome.cinema.model.DAO.DiretorDAO;
 import com.br.javahome.cinema.model.DAO.FilmeDAO;
 import com.br.javahome.cinema.model.Diretor;
+import com.br.javahome.cinema.model.Filme;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -59,8 +60,17 @@ public class FilmeController extends HttpServlet {
                     if (idDir == -1) {
                         ddao.create(new Diretor(this.diretor));
                         this.idDir = buscaIdDir(this.diretor);
-                        
                     }
+                    fdao.create(new Filme(titulo,duracao,classificacao,idDir,estreia,genero));
+                    break;
+                case "Filme.deletar":
+                    for (Filme filme1 : fdao.read()) {
+                        if(filme1.getTitulo() == titulo)
+                            fdao.delete(filme1);
+                    }
+                    break;
+                case "Filme.editar":
+                    
                     break;
                 default:
                     request.getRequestDispatcher("WEB-INF/erro.jsp").forward(request, response);
@@ -98,10 +108,12 @@ public class FilmeController extends HttpServlet {
         System.out.println("recibi o comando GET PORRA :"+request.getParameter("command"));
         command = request.getParameter("command");
         
-        if(command.equals("Filme.criar"))
+        if(command.equals("Filme.deletar")){
             System.out.println("ENTROU EM FILME.CRIAR NO DOGET =D ");
-        
-        
+            this.titulo = request.getParameter("nome");
+        }
+        if(command.equals("Filme.editar"))
+            this.titulo = request.getParameter("nome");
                 
         
         
